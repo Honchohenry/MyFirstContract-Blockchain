@@ -30,3 +30,27 @@ contract ExampleMsgSender {
         someAddress = msg.sender;
     }
 }
+
+# Constructor
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+contract ExampleConstructor {
+
+    address public myaddress;
+
+     constructor() {
+         myaddress = msg.sender;
+     }
+    
+    // OR
+
+    constructor(address _address) {
+        myaddress= _address;
+    }
+
+    function updateMsg(address _anotherAddress) public {
+        myaddress = _anotherAddress;
+    }
+}
