@@ -54,3 +54,29 @@ contract ExampleConstructor {
         myaddress = _anotherAddress;
     }
 }
+# Blockchain messanger implementation
+
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+contract TheBlockchainMessanger{
+
+    uint public changeCounter; 
+
+    address public owner;
+
+    string public themessage;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function updatethemessage(string memory _newMessage) public {
+        if(msg.sender == owner){
+        themessage = _newMessage;
+        changeCounter++;
+    }
+    }
+
+    
+}
