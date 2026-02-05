@@ -19,9 +19,6 @@ contract MyFirstContract {
 }
 
 # Msg.Object
-// SPDX-License-Identifier: GPL-3.0
-
-pragma solidity >=0.7.0 <0.9.0;
 contract ExampleMsgSender {
 
     address public someAddress;
@@ -32,10 +29,6 @@ contract ExampleMsgSender {
 }
 
 # Constructor
-
-// SPDX-License-Identifier: GPL-3.0
-
-pragma solidity >=0.7.0 <0.9.0;
 contract ExampleConstructor {
 
     address public myaddress;
@@ -55,10 +48,6 @@ contract ExampleConstructor {
     }
 }
 # Blockchain messanger implementation
-
-// SPDX-License-Identifier: GPL-3.0
-
-pragma solidity >=0.7.0 <0.9.0;
 contract TheBlockchainMessanger{
 
     uint public changeCounter; 
@@ -76,7 +65,19 @@ contract TheBlockchainMessanger{
         themessage = _newMessage;
         changeCounter++;
     }
-    }
+    }  
+}
 
-    
+# Payable Modifier and Msg.Value
+contract SampleContract {
+    //PAYABLE AND MSG.VALUE
+    string public myString = "Hello World";
+
+    function update(string memory _newString) public payable {
+        if(msg.value == 1 ether){
+            myString = _newString;
+        }else {
+            payable(msg.sender).transfer(msg.value);
+        }
+    }
 }
